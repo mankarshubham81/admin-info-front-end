@@ -405,12 +405,12 @@ function DataForm() {
         {message}
       </div>
       </Container>
-      <div className='mb-3 mt-3'>
+      <div className='m-3'>
         {/* <button onClick={getEmployees}> */}
         {/* Show Employees */}
           {/* <Link to={'/datainfo'} className='btn btn-default border w-100 bg-light rounded-0' >  </Link> */}
         {/* </button> */}
-      </div>
+      
         {(isData || employeeList.length > 0) && 
           (<table className={"table table-striped table-dark"} >
             <thead>
@@ -451,6 +451,7 @@ function DataForm() {
                     </tbody>
                 </table>)
         }
+      </div >
     </div>
   );
 }
