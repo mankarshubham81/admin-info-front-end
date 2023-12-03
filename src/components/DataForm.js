@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {useNavigate} from 'react-router-dom';
 import DeleteEmployee from "./DeleteEmployee";
 import Container from 'react-bootstrap/Container';
@@ -131,6 +133,8 @@ function DataForm() {
       setIsData(true);
   } else {
     setWrongInput(true);
+    // toast("Please Enter Valid Input");
+    toast("Please Enter Valid Input", {type: "error"})
   }
   };
 
@@ -261,6 +265,11 @@ function DataForm() {
   return (
     auth && 
     <div >
+      {/* <div className='m-3'>
+      { wrongInput ?
+         <ToastContainer style={{color: "red", textAlign: "center"}} /> : ""
+        }
+      </div> */}
       <Container>
       <div style={{backgroundColor: "burlywood", borderRadius:"5px", textAlign: "center"}} className='mb-3 mt-3 p-3'>
         {/* <label>uplaod image</label>
@@ -357,9 +366,14 @@ function DataForm() {
         <div>
         <button className='btn btn-info mb-3 mt-3' onClick={isEditData ? handleEditEmployee : addEmployee}>{isEditData ? "Edit Employee" : "Add Employee"}</button>
         </div>
-        <div>
+        {/* <div>
           {wrongInput && <p className='text-danger' >Please Enter Valid Input</p>}
-        </div>
+        </div> */}
+        <div className='m-3'>
+      { wrongInput ?
+         <ToastContainer style={{color: "red", textAlign: "center"}} /> : ""
+        }
+      </div>
       </div>
       {/* { isEditData &&  */}
       { false && 
